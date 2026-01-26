@@ -22,8 +22,10 @@ function openUtil() {
     switch (pageUniformRLocator) {
         case "calculator":
             window.location.href = `https://tinyurl.com/trashTerribleCalculator`
+            break;
         case "wcaSim":
             window.location.href = "https://tinyurl.com/wcaSim"
+            break;
     }
 }
 
