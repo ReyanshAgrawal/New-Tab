@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+    <title>New Tab</title>
+</head>
+<body>
+    <img src="assets/imgs/bing.png" class="bingImg">
+    <img src="assets/imgs/utility.png" class="utilityImg">
+    <img src="assets/imgs/SIXSEVEN.png" class="SIXSEVENIMG">
+    <main>
+        <div contenteditable="true" name="Browse Bing" id="bingSearch"></div>
+        <button class="enter enterBing"></button>
+        <div contenteditable="true" name="Browse websites, and Reyansh's Utilities!" id="myUtilsSearch"></div>
+        <button class="enter enterCustom"></button>
+        <textarea name="67!" id="sixSevenShake" disabled>67</textarea>
+    </main>
+    <script src="assets/js/main.js"></script>
+    <script>
+        let bingSearch = document.querySelector("#bingSearch")
+        let myUtilsSearch = document.querySelector("#myUtilsSearch")
+        let bingImg = document.querySelector(".bingImg")
+        let utilityImg = document.querySelector(".utilityImg")
+        let sixSevenBtn = document.querySelector(".SIXSEVENIMG")
+        let enterBing = document.querySelector(".enterBing")
+        let enterCustom = document.querySelector(".enterCustom")
+        bingSearch.addEventListener("input", (e) => {
+            if (bingSearch.innerHTML == "<br>") {
+                bingSearch.innerHTML = ""
+            }
+        })
+        myUtilsSearch.addEventListener("input", (e) => {
+            if (myUtilsSearch.innerHTML == "<br>") {
+                myUtilsSearch.innerHTML = ""
+            }
+        })        
+        function shake() {
+            document.body.classList.add("shake")
+            setTimeout(() => {
+                document.body.classList.remove("shake")
+            }, 600)
+        }
+        sixSevenBtn.addEventListener("click", shake)
+        enterBing.addEventListener("mouseenter", (e) => {
+            enterBing.classList.add("hoverTiny")
+            bingImg.classList.add("hover")
+        })
+        enterBing.addEventListener("mouseleave", (e) => {
+            enterBing.classList.remove("hoverTiny")
+            bingImg.classList.remove("hover")
+        })
+        bingImg.addEventListener("mouseenter", (e) => {
+            enterBing.classList.add("hoverTiny")
+            bingImg.classList.add("hover")
+        })
+        bingImg.addEventListener("mouseleave", (e) => {
+            enterBing.classList.remove("hoverTiny")
+            bingImg.classList.remove("hover")
+        })
+        enterCustom.addEventListener("mouseenter", (e) => {
+            enterCustom.classList.add("hoverTiny")
+            utilityImg.classList.add("hover")
+        })
+        enterCustom.addEventListener("mouseleave", (e) => {
+            enterCustom.classList.remove("hoverTiny")
+            utilityImg.classList.remove("hover")
+        })
+        utilityImg.addEventListener("mouseenter", (e) => {
+            enterCustom.classList.add("hoverTiny")
+            utilityImg.classList.add("hover")
+        })
+        utilityImg.addEventListener("mouseleave", (e) => {
+            enterCustom.classList.remove("hoverTiny")
+            utilityImg.classList.remove("hover")
+        })
+        function triggerSkewShake() {
+        document.body.classList.add('skew-shake');
+        setTimeout(() => {
+            document.body.classList.remove('skew-shake');
+        }, 3000.001); // match animation duration
+        }
+        sixSevenBtn.addEventListener("click", (e) => {
+            triggerSkewShake()
+        })
+    </script>
+</body>
+</html>
+
