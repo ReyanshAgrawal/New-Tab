@@ -31,72 +31,7 @@ function openUtil() {
 
 function tokenize(chars, bool, boolTwo = false) {
     if (bool) {
-        tokens = [...chars]
-        for (let i = 0; i < chars.length; i++) {
-            switch (tokens[i]) {
-                case "`":
-                    tokens[i] = "%60"
-                    break;
-                case "@":
-                    tokens[i] = "%40"
-                    break;
-                case "#":
-                    tokens[i] = "%23"
-                    break;
-                case "$":
-                    tokens[i] = "%24"
-                    break;
-                case "%":
-                    tokens[i] = "%25"
-                    break;
-                case "^":
-                    tokens[i] = "%5E"
-                    break;
-                case "&":
-                    tokens[i] = "%26"
-                    break;
-                case "+":
-                    tokens[i] = "%2B"
-                    break;
-                case "=":
-                    tokens[i] = "%3D"
-                    break;
-                case "[":
-                    tokens[i] = "%5B"
-                    break;
-                case "]":
-                    tokens[i] = "%5D"
-                    break;
-                case "{":
-                    tokens[i] = "%7B"
-                    break;
-                case "}":
-                    tokens[i] = "%7D"
-                    break;
-                case "\\":
-                    tokens[i] = "%5C"
-                    break;
-                case "|":
-                    tokens[i] = "%7C"
-                    break;
-                case ";":
-                    tokens[i] = "%3B"
-                    break;
-                case ":":
-                    tokens[i] = "%3A"
-                    break;
-                case "'":
-                    tokens[i] = "%27"
-                    break;
-                case ",":
-                    tokens[i] = "%2C"
-                    break;
-                case "/":
-                    tokens[i] = "%2F"
-                    break;
-            }
-        }
-        pageUniformRLocator = tokens.join("")
+        pageUniformRLocator = encodeURIComponent(tokens)
         openBing()
     } else {
         if (boolTwo) {
