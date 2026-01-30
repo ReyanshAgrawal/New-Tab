@@ -11,6 +11,10 @@
     <img src="assets/imgs/bing.png" class="bingImg">
     <img src="assets/imgs/utility.png" class="utilityImg">
     <img src="assets/imgs/SIXSEVEN.png" class="SIXSEVENIMG">
+    <img src="assets/imgs/microsoftBing.png" class="microsoftBing" onclick="openBingWeb()">
+    <img src="assets/imgs/webBlob.png" class="webBlob blob">
+    <img src="assets/imgs/toolBlob.png" class="toolBlob blob">
+    
     <main>
         <div contenteditable="true" name="Browse Bing" id="bingSearch"></div>
         <button class="enter enterBing"></button>
@@ -27,64 +31,80 @@
         let sixSevenBtn = document.querySelector(".SIXSEVENIMG")
         let enterBing = document.querySelector(".enterBing")
         let enterCustom = document.querySelector(".enterCustom")
+
         bingSearch.addEventListener("input", (e) => {
             if (bingSearch.innerHTML == "<br>") {
                 bingSearch.innerHTML = ""
             }
         })
+
         myUtilsSearch.addEventListener("input", (e) => {
             if (myUtilsSearch.innerHTML == "<br>") {
                 myUtilsSearch.innerHTML = ""
             }
-        })        
+        })
+
         function shake() {
             document.body.classList.add("shake")
             setTimeout(() => {
                 document.body.classList.remove("shake")
             }, 600)
         }
+
         sixSevenBtn.addEventListener("click", shake)
         enterBing.addEventListener("mouseenter", (e) => {
             enterBing.classList.add("hoverTiny")
             bingImg.classList.add("hover")
         })
+
         enterBing.addEventListener("mouseleave", (e) => {
             enterBing.classList.remove("hoverTiny")
             bingImg.classList.remove("hover")
         })
+
         bingImg.addEventListener("mouseenter", (e) => {
             enterBing.classList.add("hoverTiny")
             bingImg.classList.add("hover")
         })
+
         bingImg.addEventListener("mouseleave", (e) => {
             enterBing.classList.remove("hoverTiny")
             bingImg.classList.remove("hover")
         })
+
         enterCustom.addEventListener("mouseenter", (e) => {
             enterCustom.classList.add("hoverTiny")
             utilityImg.classList.add("hover")
         })
+
         enterCustom.addEventListener("mouseleave", (e) => {
             enterCustom.classList.remove("hoverTiny")
             utilityImg.classList.remove("hover")
         })
+
         utilityImg.addEventListener("mouseenter", (e) => {
             enterCustom.classList.add("hoverTiny")
             utilityImg.classList.add("hover")
         })
+
         utilityImg.addEventListener("mouseleave", (e) => {
             enterCustom.classList.remove("hoverTiny")
             utilityImg.classList.remove("hover")
         })
+
         function triggerSkewShake() {
         document.body.classList.add('skew-shake');
         setTimeout(() => {
             document.body.classList.remove('skew-shake');
-        }, 3000.001); // match animation duration
+        }, 3000.001);
         }
         sixSevenBtn.addEventListener("click", (e) => {
             triggerSkewShake()
         })
+
+        function openBingWeb() {
+            document.location.href = "https://bing.com"
+        }
     </script>
 </body>
 </html>
