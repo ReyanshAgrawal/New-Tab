@@ -20,6 +20,11 @@ textarea {
     overflow: hidden;
 }
 
+#myUtilsSearch {
+    width: 828px;
+    display: inline;
+}
+
 #bingSearch {
     font-size: 20px;
 }
@@ -47,6 +52,7 @@ main {
     position: relative;
     height: 100vh;
     justify-content: center;
+    align-items: center;
 }
 
 body {
@@ -69,7 +75,7 @@ button {
 }
 
 .enterCustom {
-    right: 85px;
+    right: 305px;
     bottom: 399px;
 }
 
@@ -91,18 +97,15 @@ img {
 .utilityImg {
     width: 60px;
     bottom: 401px;
-    right: 108px;
+    right: 328px;
     z-index: 101;
 }
 
 .SIXSEVENIMG {
     width: 500px;
-    top: 450px;
+    top: 500px;
     right: 505px;
-}
-
-@keyframes sixSevenGesture {
-    25%{transform: rotateZ(40deg);}
+    padding: 0;
 }
 
 html, body, main { 
@@ -127,7 +130,7 @@ button, img {
     cursor: pointer;
 }
 
-@keyframes skewShake {
+@keyframes sixSevenShake {
       0%   { transform: translate(0,0) skewY(0deg); }
       20%  { transform: translate(-8px,0) skewY(-5deg); }
       40%  { transform: translate(8px,0) skewY(5deg); }
@@ -137,7 +140,7 @@ button, img {
 }
 
 .skew-shake {
-    animation: skewShake;
+    animation: sixSevenShake;
     animation-duration: 1s;
     animation-iteration-count: 3;
 }
@@ -148,4 +151,46 @@ button, img {
     cursor: pointer;
     pointer-events: auto;
     z-index: 1;
+}
+
+.microsoftBing {
+    top: 200px;
+    height: 150px;
+    right: 280px;
+    z-index: 100 !important;
+}
+
+.blob {
+    width: 300px;
+    opacity: 0.65;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.webBlob {
+    right: 0px;
+    bottom: 30px;
+    transform: rotateZ(-5deg);
+    width: 400px;
+}
+
+.toolBlob {
+    bottom: 0px;
+    height: 470px !important;
+    width: auto;
+    left: 40px;
+    transform: rotateZ(45deg);
+    height: 400px;
+}
+
+.microsoftBing:hover, .SIXSEVENIMG:hover {
+    transform: scale(1.01, 1.01);
+}
+
+.webBlob:hover {
+    transform: scale(1.1, 1.1) rotateZ(-5deg);
+}
+
+.toolBlob:hover {
+    transform: scale(1.1, 1.1) rotateZ(45deg);
 }

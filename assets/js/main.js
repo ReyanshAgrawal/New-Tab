@@ -31,7 +31,7 @@ function openUtil() {
 
 function tokenize(chars, bool, boolTwo = false) {
     if (bool) {
-        pageUniformRLocator = encodeURIComponent(tokens)
+        pageUniformRLocator = encodeURIComponent(chars)
         openBing()
     } else {
         if (boolTwo) {
@@ -74,4 +74,3 @@ utilityImgM.addEventListener("click", (e) => {
         tokenize(utilsPrompt, false)
     }
 })
-
