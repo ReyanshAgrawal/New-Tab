@@ -1,32 +1,91 @@
-div, textarea {
+.bingSearch, .websiteSearch {
     border-radius: 60px;
-    resize: none;
-    display: block;
-    width: 1242px;
-    margin-left: 100px;
-    margin-right: 100px;
+    width: 1356px;
     text-align: center;
     height: 54px;
     background-color: rgb(0, 52, 110);
     padding-top: 30px;
     font-size: 20px;
     color: #fff;
-    justify-content: center;
-    align-items: center;
     overflow-y: auto;
-}
-
-textarea {
-    overflow: hidden;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 #myUtilsSearch {
-    width: 828px;
     display: inline;
+    bottom: 25px;
+    position: absolute;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-image: url(../imgs/bg.png);
+    height: 100vh;
+    width: 100vw;
+}
+
+.settings {
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    top: 85px;
+    right: 10.25px;
+    width: 60px;
+}
+
+.settings:hover {
+    transition: transform ease 700ms;
+    transform: scale(1.1);
+}
+
+.greet {
+    background: linear-gradient(90deg, #ff4da6, #4da6ff);
+    font-size: 100px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: 50px;
+    width: 100vw;
+    text-align: center;
+}
+
+.kiss {
+    font-size: 200px;
+    position: absolute;
+}
+
+.K {
+    color: #FF00FF;
+    left: 100px;
+    top: 83px;
+}
+
+.I {
+    color: #00FFFF;
+    right: 100px;
+    top: 83px;
+}
+
+.S1 {
+    color: #39FF14;
+    left: 170px;
+    top: 313px;
+}
+
+.S2 {
+    color: #FFD700;
+    right: 170px;
+    top: 313px;
 }
 
 #bingSearch {
-    font-size: 20px;
+    display: inline;
+    top: 25px;
+    position: absolute;
 }
 
 #bingSearch:empty:before {
@@ -45,40 +104,6 @@ textarea {
     content: "";
 }
 
-main {
-    display: flex;
-    gap: 250px;
-    flex-direction: column;
-    position: relative;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
-
-body {
-    background-color: rgb(0, 28, 64);
-}
-
-button {
-    position: absolute;
-    border-top-right-radius: 60px;
-    border-bottom-right-radius: 60px;
-    width: 81px;
-    height: 85px;
-    border: none;
-    background-color: rgb(0, 36, 81);
-}
-
-.enterBing {
-    top: 61px;
-    right: 85px;
-}
-
-.enterCustom {
-    right: 305px;
-    bottom: 399px;
-}
-
 textarea {
     visibility: hidden;
 }
@@ -87,110 +112,210 @@ img {
     position: absolute;
 }
 
-.bingImg {
-    width: 45px;
-    top: 77px;
-    right: 111.5px;
-    z-index: 100;
+img {
+    transition: transform 0.5s ease;
 }
 
-.utilityImg {
-    width: 60px;
-    bottom: 401px;
-    right: 328px;
-    z-index: 101;
+
+input[type="radio"] {
+    transform: scale(4.8);
+    margin-right: 115px;
+    margin-left: 115px;
 }
 
-.SIXSEVENIMG {
-    width: 500px;
-    top: 500px;
-    right: 505px;
-    padding: 0;
+#bing {
+    margin-left: 90px;
 }
 
-html, body, main { 
+#ecosia {
+    margin-right: 90px;
+}
+
+label {
+    position: absolute;
+    top: 150px;
+    font-size: 30px;
+    margin-left: 75px;
+}
+
+button {
+    width: 345px;
+    height: 60px;
+    position: relative;
+    top: 110px;
+    border-radius: 15px;
+    margin: 0;
+    background-color: rgb(1, 71, 151);
+    border: none;
+    transition: transform 0.6s ease, background-color 0.6s ease, color 0.6s ease;
+    font-size: 35px;
+    color: black;
+}
+
+button:hover {
+    transform: scale(1.02);
+    background-color: black;
+    color: rgb(1, 71, 151);
+}
+
+.accntHandlers button {
+    width: 400px;
+    height: 100px;
+    top: 50px;
+    font-size: 40px;
+    border-radius: 30px;
+}
+
+.accntHandlers button:hover {
+    transform: scale(1.2);
+}
+
+form {
+    width: 100%;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+}
+
+#shortcuts {
+    display: flex;
+    position: relative;
+    top: 100px;
+}
+
+.column1, .column2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.inactive {
+    display: none
+}
+
+.active {
+    display: block;
+}
+
+.overlay {
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#overlay2 {
+    text-align: center;
+    font-size: 145px;
+    color: white;
+}
+
+.loginPg {
+    width: 700px;
+    height: 350px;
+    background-color: rgb(1, 38, 80);
+    color: white;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+}
+
+.signUpPg {
+    width: 700px;
+    height: 350px;
+    background-color: rgb(1, 38, 80);
+    color: white;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;  
+}
+
+#settings {
+    width: 700px;
+    height: 350px;
+    background-color: rgb(1, 38, 80);
+    color: white;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.logPass, .logName {
+    margin-top: 10px;
+    color: black;
+    width: 600px;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid black;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.signPass, .signName {
+    margin-top: 10px;
+    color: black;
+    width: 600px;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid black;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.loginPg form, .signUpPg form {
+    position: relative;
+    top: 30px;
+}
+
+#settingsAttr {
+    margin: none;
+    padding: none;
+    display: inline;
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    width: 261px;
+    top: 350px;
+    right: 450px;
+}
+
+html, body, main {
     overflow: hidden;
 }
 
-.shake {
-    animation: sixSevenGesture 0.6s;
+.loginPg, .signUpPg {
+    border: 2px solid white;
 }
 
-button, img {
-    transition: transform 0.5s ease;
+.accntHandlers p {
+    margin: 0px;
+    position: relative;
+    top: 20px;
+    font-size: 20px;
 }
 
-.hover {
-    transform: scale(1.15);
-    cursor: pointer;
-}
-
-.hoverTiny {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-@keyframes sixSevenShake {
-      0%   { transform: translate(0,0) skewY(0deg); }
-      20%  { transform: translate(-8px,0) skewY(-5deg); }
-      40%  { transform: translate(8px,0) skewY(5deg); }
-      60%  { transform: translate(-8px,0) skewY(-5deg); }
-      80%  { transform: translate(8px,0) skewY(5deg); }
-      100% { transform: translate(0,0) skewY(0deg); }
-}
-
-.skew-shake {
-    animation: sixSevenShake;
-    animation-duration: 1s;
-    animation-iteration-count: 3;
-}
-
-
-.SIXSEVENIMG {
-    transition: transform 0.5s ease;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 1;
-}
-
-.microsoftBing {
-    top: 200px;
-    height: 150px;
-    right: 280px;
-    z-index: 100 !important;
-}
-
-.blob {
-    width: 300px;
-    opacity: 0.65;
-    transition: transform 0.3s ease;
-    z-index: 100;
-}
-
-.webBlob {
-    right: 0px;
-    bottom: 30px;
-    transform: rotateZ(-5deg);
-    width: 400px;
-}
-
-.toolBlob {
-    bottom: 0px;
-    height: 470px !important;
-    width: auto;
-    left: 40px;
-    transform: rotateZ(45deg);
-    height: 400px;
-}
-
-.microsoftBing:hover, .SIXSEVENIMG:hover {
-    transform: scale(1.01, 1.01);
-}
-
-.webBlob:hover {
-    transform: scale(1.1, 1.1) rotateZ(-5deg);
-}
-
-.toolBlob:hover {
-    transform: scale(1.1, 1.1) rotateZ(45deg);
+#signup {
+    color: white;
+    text-decoration: underline;
 }

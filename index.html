@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,105 +8,176 @@
     <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
     <title>New Tab</title>
 </head>
+
 <body>
-    <img src="assets/imgs/bing.png" class="bingImg">
-    <img src="assets/imgs/utility.png" class="utilityImg">
-    <img src="assets/imgs/SIXSEVEN.png" class="SIXSEVENIMG">
-    <img src="assets/imgs/microsoftBing.png" class="microsoftBing" onclick="openBingWeb()">
-    <img src="assets/imgs/webBlob.png" class="webBlob blob">
-    <img src="assets/imgs/toolBlob.png" class="toolBlob blob">
-    
+    <img src="assets/imgs/settings.png" alt="Settings Icon" class="settings">
     <main>
-        <div contenteditable="true" name="Browse Bing" id="bingSearch"></div>
-        <button class="enter enterBing"></button>
-        <div contenteditable="true" name="Browse websites, and Reyansh's Utilities!" id="myUtilsSearch"></div>
-        <button class="enter enterCustom"></button>
-        <textarea name="67!" id="sixSevenShake" disabled>67</textarea>
+        <div contenteditable="true" class="bingSearch" name="Browse Bing" id="bingSearch"></div>
+        <div contenteditable="true" class="websiteSearch" name="Browse websites, and Reyansh's Utilities!" id="myUtilsSearch"></div>
     </main>
-    <script src="assets/js/main.js"></script>
+    <p class="greet">Welcome back, Guest User!</p>
+    <p class="kiss K">K</p>
+    <p class="kiss I">I</p>
+    <p class="kiss S1">S</p>
+    <p class="kiss S2">S</p>
+    <div id="settings" class="settingsModal inactive">
+        <h1 class="name">Guest User</h1>
+        <form>
+            <div id="searchEngine">
+                <label for="bing">Bing</label>
+                <input id="bing" type="radio" name="searchEngine" value="bing" checked>
+                <label for="google">Google</label>
+                <input id="google" type="radio" name="searchEngine" value="google" disabled>
+                <label for="ecosia">Ecosia</label>
+                <input id="ecosia" type="radio" name="searchEngine" value="ecosia" disabled>
+            </div>
+            <div id="shortcuts">
+                <div class="column1">
+                    <div id="shortcut1" class="shortcut">
+                        <input type="text" name="Shortcut 1" id="shortcut1Name" class="shortcutField" placeholder="name(1)" disabled> <input type="text" name="Shortcut 1" id="shortcut1Value" class="shortcutField" placeholder="value(1)" disabled>
+                    </div>
+                    <div id="shortcut2" class="shortcut">
+                        <input type="text" name="Shortcut 2" id="shortcut2Name" class="shortcutField" placeholder="name(2)" disabled> <input type="text" name="Shortcut 2" id="shortcut2Value" class="shortcutField" placeholder="value(2)" disabled>
+                    </div>
+                    <div id="shortcut3" class="shortcut">
+                        <input type="text" name="Shortcut 3" id="shortcut3Name" class="shortcutField" placeholder="name(3)" disabled> <input type="text" name="Shortcut 3" id="shortcut3Value" class="shortcutField" placeholder="value(3)" disabled>
+                    </div>
+                </div>
+                <div class="column2">
+                    <div id="shortcut4" class="shortcut">
+                        <input type="text" name="Shortcut 4" id="shortcut4Name" class="shortcutField" placeholder="name(4)" disabled> <input type="text" name="Shortcut 4" id="shortcut4Value" class="shortcutField" placeholder="value(4)" disabled>
+                    </div>
+                    <div id="shortcut5" class="shortcut">
+                        <input type="text" name="Shortcut 5" id="shortcut5Name" class="shortcutField" placeholder="name(5)" disabled> <input type="text" name="Shortcut 5" id="shortcut5Value" class="shortcutField" placeholder="value(5)" disabled>
+                    </div>
+                    <div id="shortcut6" class="shortcut">
+                        <input type="text" name="Shortcut 6" id="shortcut6Name" class="shortcutField" placeholder="name(6)" disabled> <input type="text" name="Shortcut 6" id="shortcut6Value" class="shortcutField" placeholder="value(6)" disabled>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="login">Login</button>
+        <button class="deleteAccount" disabled>Delete Account</button>
+        <a id="settingsAttr" target="_blank" href="https://www.flaticon.com/free-icons/settings" title="settings icons">Settings icons created by Freepik - Flaticon</a>
+    </div>
+    <div id="overlay" class="overlay inactive"></div>
+    <div id="overlay2" class="overlay inactive">ENABLE COOKIES TO USE NEW TAB - THIS WEBSITE CANNOT FUNCTION WITHOUT COOKIES!!</div>
+    <div class="accntHandlers">
+        <div class="loginPg inactive">
+            <form>
+                <input type="text" class="logName" placeholder="Type your account's name...">
+                <input type="password" class="logPass" placeholder="Type your account's password...">
+                <p class="signupP">Don't have an account? Click <a id="signup">here to sign up</a> and start using New Tab today!</p>
+                <button id="loginSubmit">Login</button>
+            </form>
+        </div>
+        <div class="inactive signUpPg">
+            <form>
+                <input type="text" class="signName" placeholder="Choose a name for your account...">
+                <input type="password" class="signPass" placeholder="Choose a strong password for your account...">
+                <button id="signupSubmit">Sign up</button>
+            </form>
+        </div>
+    </div>
+    <script src="assets/js/cookiesChecker.js"></script>
     <script>
+        function getCookie2(name) {
+            let cookies = document.cookie.split(";")
+            for (let cookie of cookies) {
+                let keyValue = cookie.split("=")
+                if (keyValue[0].trim() === name) {
+                    return decodeURIComponent(keyValue[1])
+                }
+            }
+            return undefined;
+        }
+        if (getCookie2("name")) {
+            fetch(`https://newtabusersapi.onrender.com/api/users?name=${getCookie2("name")}`)
+           .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                document.querySelector(".greet").textContent = `Welcome back, ${data.name}`
+                document.querySelector(".name").textContent = data.name
+                for (let field of document.querySelectorAll(".shortcutField")) {
+                    field.removeAttribute("disabled")
+                }
+                document.querySelector(".deleteAccount").removeAttribute("disabled")
+                document.querySelector(".login").removeAttribute("disabled")
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
         let bingSearch = document.querySelector("#bingSearch")
         let myUtilsSearch = document.querySelector("#myUtilsSearch")
-        let bingImg = document.querySelector(".bingImg")
-        let utilityImg = document.querySelector(".utilityImg")
-        let sixSevenBtn = document.querySelector(".SIXSEVENIMG")
-        let enterBing = document.querySelector(".enterBing")
-        let enterCustom = document.querySelector(".enterCustom")
+        let greetPara = document.querySelector(".greet")
+        let kiss = document.querySelectorAll(".kiss")
+        let overlay = document.querySelector("#overlay")
+        let settBtn = document.querySelector(".settings")
+        let settModal = document.querySelector(".settingsModal")
+        let loginModal = document.querySelector(".loginPg") 
+        let signupModal = document.querySelector(".signUpPg")       
+        let loginBtn = document.querySelector(".login")
+        let signupBtn = document.querySelector("#signup")
+
+        bingSearch.focus()
+        
+        overlay.addEventListener("click", e => {
+            if (overlay.classList.contains("active")) {
+                overlay.classList.add("inactive")
+                overlay.classList.remove("active")
+                settModal.classList.add("inactive")
+                settModal.classList.remove("active")
+                loginModal.classList.add("inactive")
+                loginModal.classList.remove("active")
+                signupModal.classList.add("inactive")
+                signupModal.classList.remove("active")
+                document.title = "New Tab"
+            }
+        })
+        settBtn.addEventListener('click', e => {
+            overlay.classList.remove("inactive")
+            overlay.classList.add("active")
+            settModal.classList.remove("inactive")
+            settModal.classList.add("active")
+            document.title = "New Tab - Settings"
+        })
+        signupBtn.addEventListener('click', e => {
+            e.preventDefault()
+            overlay.classList.remove("inactive")
+            overlay.classList.add("active")
+            signupModal.classList.remove("inactive")
+            signupModal.classList.add("active")
+            loginModal.classList.remove("active")
+            loginModal.classList.add("inactive")
+            document.title = "New Tab - Settings"
+        })
+        loginBtn.addEventListener('click', e => {
+            overlay.classList.remove("inactive")
+            overlay.classList.add("active")
+            loginModal.classList.remove("inactive")
+            loginModal.classList.add("active")
+            settModal.classList.remove("active")
+            settModal.classList.add("inactive")
+            document.title = "New Tab - Settings"
+        })
 
         bingSearch.addEventListener("input", (e) => {
             if (bingSearch.innerHTML == "<br>") {
                 bingSearch.innerHTML = ""
             }
         })
-
         myUtilsSearch.addEventListener("input", (e) => {
             if (myUtilsSearch.innerHTML == "<br>") {
                 myUtilsSearch.innerHTML = ""
             }
         })
-
-        function shake() {
-            document.body.classList.add("shake")
-            setTimeout(() => {
-                document.body.classList.remove("shake")
-            }, 600)
-        }
-
-        sixSevenBtn.addEventListener("click", shake)
-        enterBing.addEventListener("mouseenter", (e) => {
-            enterBing.classList.add("hoverTiny")
-            bingImg.classList.add("hover")
-        })
-
-        enterBing.addEventListener("mouseleave", (e) => {
-            enterBing.classList.remove("hoverTiny")
-            bingImg.classList.remove("hover")
-        })
-
-        bingImg.addEventListener("mouseenter", (e) => {
-            enterBing.classList.add("hoverTiny")
-            bingImg.classList.add("hover")
-        })
-
-        bingImg.addEventListener("mouseleave", (e) => {
-            enterBing.classList.remove("hoverTiny")
-            bingImg.classList.remove("hover")
-        })
-
-        enterCustom.addEventListener("mouseenter", (e) => {
-            enterCustom.classList.add("hoverTiny")
-            utilityImg.classList.add("hover")
-        })
-
-        enterCustom.addEventListener("mouseleave", (e) => {
-            enterCustom.classList.remove("hoverTiny")
-            utilityImg.classList.remove("hover")
-        })
-
-        utilityImg.addEventListener("mouseenter", (e) => {
-            enterCustom.classList.add("hoverTiny")
-            utilityImg.classList.add("hover")
-        })
-
-        utilityImg.addEventListener("mouseleave", (e) => {
-            enterCustom.classList.remove("hoverTiny")
-            utilityImg.classList.remove("hover")
-        })
-
-        function triggerSkewShake() {
-        document.body.classList.add('skew-shake');
-        setTimeout(() => {
-            document.body.classList.remove('skew-shake');
-        }, 3000.001);
-        }
-        sixSevenBtn.addEventListener("click", (e) => {
-            triggerSkewShake()
-        })
-
-        function openBingWeb() {
-            document.location.href = "https://bing.com"
-        }
     </script>
+    <script src="assets/js/main.js"></script>
+    <!-- <script src="./main.js"></script> -->
 </body>
 </html>
 
+<!-- Add: <a href="https://www.flaticon.com/free-icons/settings" title="settings icons">Settings icons created by Freepik - Flaticon</a> -->
+<!--x <a href="https://www.flaticon.com/free-icons/dropdown-arrow" title="dropdown arrow icons">Dropdown arrow icons created by Super Man icons - Flaticon</a> -->
