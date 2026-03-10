@@ -95,7 +95,7 @@ body {
 }
 
 #myUtilsSearch:empty:before {
-    content: "Browse websites, and Reyansh's Utilities...";
+    content: "Browse websites, or use one of your shortcuts...";
     color: rgba(119, 119, 119, 0.731);
     font-size: 20px;
 }
