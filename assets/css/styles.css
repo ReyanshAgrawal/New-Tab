@@ -1,15 +1,18 @@
-.bingSearch, .websiteSearch {
+.bingSearch,
+.websiteSearch {
     border-radius: 60px;
-    width: 1356px;
+    width: 99%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
     text-align: center;
-    height: 54px;
+    position: static;
+    height: 44px;
     background-color: rgb(0, 52, 110);
-    padding-top: 30px;
+    padding-top: 20px;
     font-size: 20px;
     color: #fff;
     overflow-y: auto;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 #myUtilsSearch {
@@ -25,36 +28,45 @@ body {
     background-image: url(../imgs/bg.png);
     height: 100vh;
     width: 100vw;
+    background-size: cover;
+    background-position: center;
 }
 
 .settings {
-    justify-self: center;
-    align-self: center;
-    position: relative;
-    top: 85px;
-    right: 10.25px;
-    width: 60px;
+    position: fixed;
+    top: 52.5%;
+    left: 46.5%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 6px;
+    transition: transform 180ms ease;
 }
 
-.settings:hover {
-    transition: transform ease 700ms;
-    transform: scale(1.1);
+.settings:hover,
+.settings:focus {
+    transform: translate(-50%, -50%) scale(1.08);
+    outline: none;
 }
+
 
 .greet {
     background: linear-gradient(90deg, #ff4da6, #4da6ff);
-    font-size: 100px;
+    font-size: 50px;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: absolute;
-    top: 50px;
+    top: 11%;
     width: 100vw;
     text-align: center;
 }
 
 .kiss {
-    font-size: 200px;
+    font-size: 7rem;
     position: absolute;
 }
 
@@ -72,14 +84,14 @@ body {
 
 .S1 {
     color: #39FF14;
-    left: 170px;
-    top: 313px;
+    left: 20%;
+    top: 52%;
 }
 
 .S2 {
     color: #FFD700;
-    right: 170px;
-    top: 313px;
+    right: 20%;
+    top: 52%;
 }
 
 #bingSearch {
@@ -100,7 +112,8 @@ body {
     font-size: 20px;
 }
 
-#bingSearch:focus:after, #myUtilsSearch:focus:after {
+#bingSearch:focus:after,
+#myUtilsSearch:focus:after {
     content: "";
 }
 
@@ -187,7 +200,8 @@ h1 {
     top: 100px;
 }
 
-.column1, .column2 {
+.column1,
+.column2 {
     display: flex;
     flex-direction: column;
 }
@@ -243,7 +257,7 @@ h1 {
     position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 1000;  
+    z-index: 1000;
 }
 
 #settings {
@@ -261,7 +275,8 @@ h1 {
     z-index: 1000;
 }
 
-.logPass, .logName {
+.logPass,
+.logName {
     margin-top: 10px;
     color: black;
     width: 600px;
@@ -272,7 +287,8 @@ h1 {
     display: inline-block;
 }
 
-.signPass, .signName {
+.signPass,
+.signName {
     margin-top: 10px;
     color: black;
     width: 600px;
@@ -283,7 +299,8 @@ h1 {
     display: inline-block;
 }
 
-.loginPg form, .signUpPg form {
+.loginPg form,
+.signUpPg form {
     position: relative;
     top: 30px;
 }
@@ -300,11 +317,14 @@ h1 {
     right: 450px;
 }
 
-html, body, main {
+html,
+body,
+main {
     overflow: hidden;
 }
 
-.loginPg, .signUpPg {
+.loginPg,
+.signUpPg {
     border: 2px solid white;
 }
 
@@ -319,3 +339,65 @@ html, body, main {
     color: white;
     text-decoration: underline;
 }
+
+
+@media (max-width: 480px) {
+    .kiss {
+        font-size: 5rem;
+    }
+
+    .settings {
+        width: 44px;
+        height: 44px;
+        top: 52%;
+        left: 42.5%;
+    }
+
+    .greet {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .S1 {
+        top: 64%;
+    }
+
+    .S2 {
+        top: 64%;
+    }
+
+}
+
+@media (max-width: 376px) {
+    .settings {
+        width: 44px;
+        height: 44px;
+        top: 51%;
+        left: 42%;
+    }
+
+    .greet {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .S1 {
+        top: 63%;
+    }
+
+    .S2 {
+        top: 63%;
+    }
+
+    .K {
+        top: 65px;
+    }
+
+    .I {
+        top: 65px;
+    }
+
+    .kiss {
+        font-size: 4rem;
+    }
+}   
